@@ -1,42 +1,19 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { Box, Heading, useColorModeValue, VStack } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
+import { Header } from './Components/Header/Header';
+import { Navbar } from './Components/Navbar/Navbar';
+import { About } from './Components/About/About';
+import { Token } from './Components/Token/Token';
+import Footer from './Components/Footer/Footer';
 
-function App() {
+export const App = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
-  );
-}
-
-export default App;
+    <VStack>
+      <Navbar />
+      <Header/>
+      <About id="about"/>
+      <Token id="token"/>
+      <Footer id="community"/>
+    </VStack>
+  )
+};
